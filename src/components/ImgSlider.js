@@ -44,6 +44,7 @@ const Carousel = styled(Slider)`
 
   .slick-list {
     overflow: visible;
+    height: 100%;
   }
 
   button {
@@ -53,6 +54,7 @@ const Carousel = styled(Slider)`
 
 const Wrap = styled.div`
   cursor: pointer;
+  height: 100%;
   img {
     border: 4px solid transparent;
     border-radius: 4px;

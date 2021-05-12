@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { auth, provider } from "../firebase";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
@@ -26,7 +27,7 @@ function Header() {
             photo: user.photoURL,
           })
         );
-        history.push("/");
+        history.push("/home");
       }
     });
   }, []);
@@ -41,20 +42,22 @@ function Header() {
           photo: user.photoURL,
         })
       );
-      history.push("/");
+      history.push("/home");
     });
   };
 
   const signOut = () => {
     auth.signOut().then(() => {
       dispatch(setSignOut());
-      history.push("/login");
+      history.push("/");
     });
   };
 
   return (
     <Nav>
-      <Logo src="/images/logo.svg" />
+      <Link to="/home">
+        <Logo src="/images/logo.svg" />
+      </Link>
 
       {!userName ? (
         <LoginContainer>
@@ -64,8 +67,13 @@ function Header() {
         <>
           <NavMenu>
             <a>
-              <img src="/images/home-icon.svg" />
-              <span>HOME</span>
+              <Link
+                style={{ color: "white", textDecoration: "none" }}
+                to="/home"
+              >
+                <img src="/images/home-icon.svg" />
+                <span>HOME</span>
+              </Link>
             </a>
             <a>
               <img src="/images/search-icon.svg" />
@@ -118,6 +126,15 @@ const NavMenu = styled.div`
   display: flex;
   flex: 1;
   margin-left: 20px;
+
+  @media (max-width: 768px) {
+    & a:nth-child(3),
+    & a:nth-child(4),
+    & a:nth-child(5),
+    & a:nth-child(6) {
+      display: none;
+    }
+  }
 
   a {
     display: flex;

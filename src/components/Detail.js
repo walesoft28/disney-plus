@@ -110,11 +110,11 @@ const PlayButton = styled.button`
   height: 56px;
   background: rgb(249, 249, 249);
   border: none;
-  letter-spacing: 1.8px
+  letter-spacing: 1.8px;
   cursor: pointer;
 
   &:hover {
-      background: rgb(198, 198, 198);
+    background: rgb(198, 198, 198);
   }
 `;
 
@@ -159,6 +159,6 @@ const Description = styled.div`
   font-size: 20px;
   margin-top: 16px;
   color: rgb(249, 249, 249);
-  width: 760px;
+  max-width: 760px;
   height: 500px;
 `;

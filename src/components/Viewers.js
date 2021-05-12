@@ -28,7 +28,7 @@ export default Viewers;
 const Container = styled.div`
   margin-top: 30px;
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-gap: 25px;
   padding: 30px 0 26px;
 `;
